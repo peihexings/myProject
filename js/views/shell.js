@@ -4,7 +4,7 @@ directory.ShellView = Backbone.View.extend({
         this.searchresultsView = new directory.SearchView({tagName: 'ul', className: 'dropdown-menu'});
     },
 
-    render: function () {
+    render: function () { 
         this.$el.html(this.template());
         $('body').click(function () {
             $('.dropdown').removeClass("open");

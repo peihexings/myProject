@@ -7,11 +7,11 @@ var directory = {
     loadTemplates: function(views, callback) {
 
         var deferreds = [];
-        // console.log();
+    
         $.each(views, function(index, view) {
             if (directory[view]) {
-                deferreds.push($.get('tpl/' + view + '.html', function(data) {
-                    console.log(data);
+                deferreds.push($.get('tpl/' + view + '.html', function(data) {  
+                console.log(view+":"+data);                 
                     directory[view].prototype.template = _.template(data);
                 }, 'html'));
             } else {
@@ -59,7 +59,7 @@ directory.Router = Backbone.Router.extend({
         directory.shellView.selectMenuItem('contact-menu');
     }
 });
-
+//程序入口函数
 $(document).on("ready", function () {
     directory.loadTemplates(["HomeView", "ContactView", "ShellView", "SearchView"],
         function () {
